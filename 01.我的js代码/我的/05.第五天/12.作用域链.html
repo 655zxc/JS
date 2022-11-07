@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js可以在函数中声明内部函数
+        var num = 10;
+        function outer(){
+            var num = 20;
+            inner();
+
+
+
+            function inner(){
+                console.log(num);
+            }
+            //inner是outer的内部函数
+
+        }
+
+        outer();//就近原则 20 因为outer相当于inner的全局区域吗?
+        // inner(); 在outer之外无法调用inner
+
+       var a = 5;
+       function f(){
+           console.log(a);
+       }
+       f();
+       //没有传参 居然会输出5???
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

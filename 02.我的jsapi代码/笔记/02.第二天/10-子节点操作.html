@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 节点的优点 -->
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">×</span>
+        </div>
+    </div>
+
+    <script>
+        // DOM 提供的方法（API）获取
+        var ul = document.querySelector('ul');
+
+
+
+
+        // 1. 子节点  childNodes 所有的子节点 包含 元素节点 文本节点等等
+        //注意 得到的子节点是个集合
+        //这个得到的子节点 不止标签 还有文本 比如换行
+        console.log(ul.childNodes);//得到了9个子节点 5个换行和4个元素
+        console.log(ul.childNodes[0].nodeType);//换行的nodeType是3  
+        console.log(ul.childNodes[1].nodeType);//元素的nodeType是1
+
+
+
+
+        // 2. children 获取所有的子元素节点 也是我们实际开发常用的
+        //只会得到元素 4个元素
+        console.log(ul.children);
+    </script>
+</body>
+
+</html>

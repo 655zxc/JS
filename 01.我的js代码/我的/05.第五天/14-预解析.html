@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //错误 ubdefined
+        console.log(num1);
+
+
+
+        //错误 undefined  
+        console.log(num2); 
+        var num2 = 10;
+        // 相当于执行了以下代码
+        // var num2;
+        // console.log(num2);
+        // num = 10;
+
+
+
+
+        //正确 10
+        var num3 = 10;
+        console.log(10);
+
+
+
+
+
+
+        //正确 fn1
+        fn1();
+        function fn1() {
+            console.log('fn1');
+        }
+        
+
+
+
+
+
+        //正确 fn2 
+        function fn2(){
+            console.log('fn2');
+        }
+        fn2();
+
+    
+
+
+
+        
+        //正确 fun1
+        var fun1 = function() {
+                console.log('fun1');
+
+            }
+        fun1();
+
+
+
+
+
+
+        //错误 undefined
+        fun2();
+        var fun = function() {
+                console.log('fun2');
+
+            }
+            // 函数表达式 调用必须写在函数表达式的下面
+            // 相当于执行了以下代码
+            // var fun2;
+            // fun2();
+            // fun2 = function() {
+            //         console.log('fun2');
+            //     }
+
+
+
+
+
+
+
+
+        // 1. 我们js引擎运行js 分为两步：  预解析  代码执行
+        // (1). 预解析:     js引擎会把js 里面所有的 var  还有 function 提升到当前作用域的最前面
+        // (2). 代码执行:  按照代码书写的顺序从上往下执行
+
+        // 2. 预解析分为 变量预解析（变量提升） 和 函数预解析（函数提升）
+        // (1) 变量提升 就是把所有的变量声明提升到当前的作用域最前面  不提升赋值操作
+        // (2) 函数提升 就是把所有的函数声明提升到当前作用域的最前面  不调用函数
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

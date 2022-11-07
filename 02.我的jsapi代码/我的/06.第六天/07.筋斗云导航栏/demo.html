@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        .c-nav {
+            width: 900px;
+            height: 42px;
+            background: #fff url(images/rss.png) no-repeat right center;
+            margin: 100px auto;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .c-nav ul {
+            position: absolute;
+        }
+        
+        .c-nav li {
+            float: left;
+            width: 83px;
+            text-align: center;
+            line-height: 42px;
+        }
+        
+        .c-nav li a {
+            color: #333;
+            text-decoration: none;
+            display: inline-block;
+            height: 42px;
+        }
+        
+        .c-nav li a:hover {
+            color: white;
+        }
+        
+        .c-nav li.current a {
+            color: #0dff1d;
+        }
+        
+        .cloud {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 83px;
+            height: 42px;
+            background: url(images/cloud.gif) no-repeat;
+        }
+    </style>
+    <script src="animate.js"></script>
+
+</head>
+
+<body>
+    <div id="c_nav" class="c-nav">
+        <span class="cloud"></span>
+        <ul>
+            <li class="current"><a href="#">首页新闻</a></li>
+            <li><a href="#">师资力量</a></li>
+            <li><a href="#">活动策划</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">招聘信息</a></li>
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">我是佩奇</a></li>
+            <li><a href="#">啥是佩奇</a></li>
+        </ul>
+    </div>
+
+    <script>
+        var cloud = document.querySelector('.cloud');
+        var ul = document.querySelector('ul');
+
+ 
+        for(var i = 0;i < ul.children.length;i++){
+         ul.children[i].setAttribute('index',i);//设置索引
+ 
+         ul.children[i].addEventListener('mouseenter',function(){
+             //不用over 否则冒泡
+
+             animate(cloud,this.getAttribute('index')*ul.children[0].offsetWidth);
+         })
+
+
+
+        ul.children[i].addEventListener('mouseleave',function(){
+            var current = document.querySelector('.current');
+                animate(cloud,current.getAttribute('index')*ul.children[0].offsetWidth);
+                // 当离开li时候 
+                //             若没有click cloud回到current的位置
+                //             若click 当前li变成current cloud回到current的位置 相当于不动
+            
+        })
+
+
+
+        ul.children[i].addEventListener('click',function(){
+            var current = document.querySelector('.current');
+            current.className = "";
+            this.className = "current";
+            //更新当前li
+    
+
+        })
+
+        }
+     
+        
+     </script>
+</body>
+
+</html>

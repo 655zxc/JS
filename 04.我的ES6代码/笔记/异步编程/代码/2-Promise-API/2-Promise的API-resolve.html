@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API - resolve</title>
+</head>
+<body>
+    <script>
+        //resolve方法 说明: 返回一个成功/失败的 promise 对象
+        //Promise构造器的方法resolve会返回一个promise对象
+        // Promise.resolve(x) 可以看作是 new Promise(resolve => resolve(x)) 的简写，可以用于快速封装字面量对象或其他对象，将其封装成 Promise 实例。
+
+
+        let p1 = Promise.resolve(521);
+        //如果传入的参数为 非Promise类型的对象, 则返回的结果为成功promise对象 值是521
+
+        //如果传入的参数为 Promise 对象, 则参数的结果决定了 resolve 的结果
+        let p2 = Promise.resolve(new Promise((resolve, reject) => {
+            
+            reject('Error');//一个失败的promise对象
+        }));
+        console.log(p1);
+        console.log(p2);
+
+
+        p2.catch(reason => {
+            console.log(reason);
+        })//当出现了一个失败的promise 必须有一个回调去处理
+        //这里使用catch做一个处理
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+        
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+        
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+        
+        .banner {
+            height: 250px;
+            background-color: skyblue;
+        }
+        
+        .main {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+        
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+
+    <!-- 注意 也可以用sticky做 -->
+    <script>
+        var sliderbar = document.querySelector('.slider-bar');
+        var goBack = document.querySelector('.goBack');
+        // var y = window.pageYOffset;
+        //不能把window.pageYOffset写在函数外面
+        //触发scroll事件时 window.pageYOffset 是一直在变化的
+        var sliderbarheight = sliderbar.offsetTop;
+        //在外面获得sliderbar的初始高度 别在函数里写 因为高度会变化
+        console.log(sliderbarheight);
+        
+        
+        document.addEventListener('scroll',function(){
+            var y = window.pageYOffset;
+            if(y>500){
+                goBack.style.display = 'block';
+            }
+            else{
+                goBack.style.display = 'none';//滚轮返回时消失
+            }
+
+
+            if(y>(sliderbarheight-50)){//如果页面滚动时 被卷去的高度大于一开始sliderbar到顶部的高度 
+                sliderbar.style.top = y + 50 + 'px';
+                
+            }
+            else{//否则 重新设置为原来的高度 不然这个块位置就不变回来了
+                sliderbar.style.top = sliderbarheight + 'px';
+            }
+            
+        })
+
+        
+
+
+//页面被卷去的头部：可以通过window.pageYOffset 获得 如果是被卷去的左侧 window.pageXOffset
+//注意，元素被卷去的头部是 element.scrollTop , 如果是页面被卷去的头部 则是 window.pageYOffset
+
+//===========================================================//
+
+
+
+
+    goBack.addEventListener('click',function(){
+            animate(window,0);
+        })
+        
+        
+        
+        
+    function animate(obj,target,callback){
+    clearInterval(obj.timer);
+    obj.timer = setInterval(function(){
+        var step = (target - (window.pageYOffset ))/10;//step缓动更新 window.pageYOffset是页面在y上滚动的距离
+        step = step > 0 ? Math.ceil(step) : Math.floor(step);
+        window.scroll(0,window.pageYOffset + step);//回到 x = 0,y = window.pageYOffset + step的位置 
+        if(target == (window.pageYOffset )){
+            clearInterval(obj.timer);
+            callback && callback();
+            }
+        },15)
+    }
+
+
+
+
+
+    </script>
+  
+</body>
+
+</html>

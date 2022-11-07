@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var o = {
+         name:'tom',
+         age:15
+         }
+
+         function fun(a){
+            console.log(this);
+            console.log(a);
+            console.log('===========');
+         }
+
+         fun.call(o,1);
+         fun(2);
+         fun.apply(o,[3]);
+         fun.bind(o,4);//不会执行
+         var f = fun.bind(o,5);
+         f();
+         fun(6);//原来的函数不会变
+
+    </script>
+</body>
+</html>

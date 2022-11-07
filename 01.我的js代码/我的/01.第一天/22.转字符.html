@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = 10;
+        var b = a.toString();
+        console.log(typeof a,typeof b);
+        // a是num b是string
+
+        console.log(typeof String(a));
+        console.log(typeof a);
+        // a是num
+        // 因此 tostring 和 string都是有返回值 不会改变本身 需要用一个变量复制来改变
+        // 比如a = a.toString()
+
+        a = a.toString();
+        console.log(typeof a);
+        // String
+
+        var c = 10;
+        var d = c+"";
+
+        console.log(typeof c  ,typeof d);
+        // num string
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

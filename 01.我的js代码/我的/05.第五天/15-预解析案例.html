@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 预解析案例
+        // 案例1 结果是undefined
+        var num = 10;
+        fun();
+
+        function fun() {
+            console.log(num);
+            var num = 20;
+        }
+        // // 相当于执行了以下操作
+        // // var num;
+
+        // // function fun() {
+        // //     var num;
+        // //     console.log(num); 由作用域链的就近原则 参考var num 结果是undefined
+        // //     num = 20; 在log的下面 由于js从上向下执行 因此执行log的时候还没执行num=20
+        // // }
+        // // num = 10;
+        // // fun();
+
+
+
+
+
+
+
+
+
+        // // 案例2 结果是undefined 20
+        var num = 10;
+
+        function fn() {
+            console.log(num);
+            var num = 20;
+            console.log(num);
+        }
+        fn();
+        // // 相当于以下代码
+        // // var num;
+
+        // // function fn() {
+        // //     var num;
+        // //     console.log(num); 由作用域链的就近原则 undefined
+        // //     num = 20;
+        // //     console.log(num); 由作用域链的就近原则 20
+        // // }
+        // // num = 10;
+        // // fn();
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // // 案例3 undefined 9
+        var a = 18;
+        f1();
+
+        function f1() {
+            var b = 9;
+            console.log(a);
+            console.log(b);
+            var a = '123';
+        }
+        // 相当于以下代码
+        // var a;
+
+        // function f1() {
+        //     var b;
+        //     var a;
+        //     b = 9;
+        //     console.log(a);
+        //     console.log(b);
+        //     a = '123';
+        // }
+        // a = 18;
+        // f1();
+
+
+
+
+
+
+
+
+        // 案例4
+        // 9 9 9 9 9 报错
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+
+        function f1() {
+            var a = b = c = 9; // [相当于 var  a  = 9; b = 9; c = 9; b 和 c 直接赋值 没有var 声明 当 全局变量看]
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        // 以下代码
+        // function f1() {
+        //     var a;
+        //     a = b = c = 9;
+        //     // 相当于 var  a  = 9; b = 9; c = 9; b 和 c 直接赋值 没有var 声明 当 全局变量看
+        //     // 集体声明  var a = 9, b = 9, c = 9; 这样 a b c前面才都会有var
+        //     console.log(a); 9
+        //     console.log(b); 9
+        //     console.log(c); 9
+        // }
+        // f1();
+        // console.log(c); 9
+        // console.log(b); 9
+        // console.log(a); 报错
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

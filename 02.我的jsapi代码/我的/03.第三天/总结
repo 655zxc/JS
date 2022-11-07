@@ -1,0 +1,24 @@
+2021.11.1
+
+
+1.注意一点
+  要获得某个元素的子元素 一定记得加children
+  比如tbody.children[i] 
+  不要直接写成tbody[i]
+  tbody是个元素 不是数组
+
+***2.注册事件的第两种方式
+触发控件.addEventListener('事件',function(e){}
+当事件可以任何一个地方触发时 控件是document
+事件都不带on
+新的注册事件方式可以写多个相同事件的函数 传统注册方式会被覆盖
+
+3.事件的删除
+
+4.事件对象e的理解
+可以对e进行操作
+比如e.clientX e.target e.preventDefault() e.keycode
+
+5.捕获和冒泡的理解
+
+6.常见事件

@@ -1,0 +1,18 @@
+2021.11.15
+
+
+1.同步和异步
+http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html
+f2等待f1的结果
+导致f3,f4...卡住
+将f2写成f1的回调函数 一起放在等待队列
+
+
+定时器的回调函数是无限嵌套,会造成回调地狱 见20
+promise将回调函数写在了then里面,链式嵌套,p.then.then.then...
+
+详见掘金
+
+2.promise
+注意 promise体里的函数时同步的 then里面的才是异步的
+但是promise里面一般都是放异步操作(例如定时器)?

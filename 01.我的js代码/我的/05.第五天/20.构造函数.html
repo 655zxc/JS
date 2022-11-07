@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function people(name2,age2){
+            this.name1 = name2;//形参和属性无关
+            this.age1 = age2;
+            this.nameage = name2+age2;
+            this.walk = function(){
+                console.log(this.name1 + "走路");
+                //这里不能写name1 一定要加this this.name1这才是属性
+                //也可以写name2形参
+            }
+            this.f = function(){
+                console.log(this.nameage);
+            }
+        }
+
+        var ming = new people('ming',18);
+
+        ming.walk();
+        ming.f();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

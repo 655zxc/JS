@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button>传统方法</button>
+    <button>新方法</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+        btns[0].onclick = function(){
+            alert('aa');
+
+            btns[0].onclick = null;
+        }
+
+        btns[1].addEventListener('click',fn);
+
+        function fn(){
+            alert('bb');
+            btns[1].removeEventListener('click',fn);
+        }
+    </script>
+</body>
+</html>

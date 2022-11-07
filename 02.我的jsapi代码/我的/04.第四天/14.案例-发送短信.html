@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    手机号码： <input type="number"> <button>发送</button>
+    <script>
+        var input = document.querySelector('input');
+        var button = document.querySelector('button');
+        button.addEventListener('click',function(){
+            this.disabled = true;//关闭按钮
+
+            var flag = 3;//计时器
+
+            var time = setInterval(function(){//开始计时 1s执行一次flag-- , flag为0时停止函数
+                if(flag==0){
+                    //计时完毕
+                   
+                    button.disabled = false;//这里的button不能用this , this是调用定时器的对象 , 也就是window
+                    clearInterval(time);
+                    button.innerHTML = '发送';
+                    //重置
+                }
+                else{
+                    // -1s
+                    button.innerHTML = '还剩下' + flag + '秒';
+                    flag--;
+                    
+                }
+            },1000)
+            
+        })
+       
+    </script>
+</body>
+
+</html>

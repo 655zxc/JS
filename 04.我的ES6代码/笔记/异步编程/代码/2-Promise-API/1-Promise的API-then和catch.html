@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API</title>
+</head>
+<body>
+    <script>
+        //
+        let p = new Promise((resolve, reject) => {
+            // ** 这个箭头函数的内容是同步调用的
+            // console.log(111);
+            //修改 promise 对象的状态
+            reject('error');
+        });
+
+        // console.log(222);
+
+        //执行 catch 方法
+        let a = p.catch(reason => {
+            console.log(reason);
+        });
+
+        console.log(a);//then catch会返回一个promise对象
+
+        //then catch是实例有的方法
+        //resolve reject all race都是构造函数的方法
+        //then有两个参数resolve reason catch有一个reason
+    </script>
+</body>
+</html>

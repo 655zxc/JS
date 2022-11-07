@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* li{
+            list-style: none;
+
+            width: 90px;
+            height: 90px;
+            ;
+
+            background-color: powderblue;
+
+            background-image: url('../../笔记/01.第一天/images/sprite.png') no-repeat;
+
+            background-size: 100%;
+
+            
+        }
+
+        .box{
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            margin-top:100px;
+            background-color: pink;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-around;
+            align-content: space-around;
+        } */
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        .box {
+            width: 250px;
+            margin: 100px auto;
+        }
+        
+        .box li {
+            float: left;
+            width: 24px;
+            height: 24px;
+            /* 把li的宽高设置和背景图一样大 */
+            background-color: pink;
+            margin: 15px;
+            background: url('../../笔记/01.第一天/images/sprite.png') no-repeat;
+            /* 设置背景图 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        
+    </div>
+
+    <script>
+        // var li = document.getElementsByName('li');//li不是类名
+        var li = document.querySelectorAll('li')
+        for(var i =0;i<li.length;i++){
+            li[i].style.backgroundPosition = '0 -' + i*44 + 'px';
+            //合起来就是 backgroundPosition =  '0 某px'
+        }
+    </script>
+</body>
+</html>

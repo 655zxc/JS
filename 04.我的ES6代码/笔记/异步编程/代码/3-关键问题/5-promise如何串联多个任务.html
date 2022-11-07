@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise关键问题 - 如何串联多个任务</title>
+</head>
+<body>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('OK');
+            }, 1000);
+        });
+
+        //1s后 p的状态才会变成成功 then的回调才会执行
+        //因为then方法需要状态改变为成功失败时 才会调用
+        
+        p.then(value => {
+            return new Promise((resolve, reject) => {
+                resolve("success");//由于这里返回了一个promise
+            });
+        }).then(value => {//可以继续执行then操作 value是success
+            console.log(value);//输出success
+        }).then(value => {
+            console.log(value);//输出undefined
+            //因为前面这个then没有return 返回一个成功但是没有值的promise
+            //没有值的promise 它的value也是undefined
+        }).then(value => {
+            console.log(value);//输出undefined
+            //因为前面这个then没有return 返回一个成功但是没有值的promise
+            //没有值的promise 它的value也是undefined
+        })
+
+//下面的then都需要根据上面的then的结果执行
+//写成回调函数就会形成回调地狱
+
+// Proimse能够将多个异步请求变为同步请求，但前提是，这些异步请求必须以.then的链式调用来使用才可以
+// Promise可以链式.then是因为，.then回调返回的也是一个Promise，所以才可以一直.then
+//异步任务需要一个接一个的执行（如执行脚本），所以可以使用Promise链
+//https://www.jianshu.com/p/f31645991847
+
+    </script>
+</body>
+</html>

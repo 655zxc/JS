@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a1 = ['a','b','c','d'];
+
+        console.log(a1);
+
+        a1.length = 5;
+        //修改数组长度
+
+        console.log(a1[4]);
+        //undefined
+
+        console.log(a1);
+
+        a1.length = 3;
+        console.log(a1);
+      
+
+        // 为什么数组全部取最后的样子?
+
+
+        //==============================
+
+        var a2 = [1,2,3]
+        a2[3] = 4;
+        console.log(a2);
+        // js可以直接添加元素 不需要修改长度
+
+        var a3 = [1,2,3];
+        a3[5] = 6;
+        console.log(a3);
+        //长度从3自动变成了6 中间有些没有数值
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

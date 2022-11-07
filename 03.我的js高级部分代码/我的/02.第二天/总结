@@ -1,0 +1,29 @@
+2021.11.8-2021.11.9
+
+重点看7,12,
+
+1.原型链
+
+构造函数有属性原型对象prototype
+实例化的对象有属性__proto__,指向原型对象prototype
+注意 因为prototype是个对象 对象都有属性__proto__ 
+所以构造函数的原型对象prototype的也有属性__proto__指向object的原型对象prototype
+object的原型对象prototype是object构造函数的属性
+object的原型对象prototype也是对象 __proto__指向空
+
+搞清楚构造函数 构造函数的原型对象 构造函数的实例化对象 三者的关系
+
+
+2.原型链查找机制
+
+
+3.原型链继承
+
+4.
+tbody.innerHTML = '';//清空内容
+tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>';//添加内容 区别是要全体修改
+tr.insertAdjacentHTML('beforeend', li);//添加内容 区别是可以插入
+
+
+5.数组的方法
+foreach filter some

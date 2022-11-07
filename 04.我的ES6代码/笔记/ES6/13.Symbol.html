@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>symbol</title>
+</head>
+<body>
+    <script>
+        //创建Symbol 
+        //不是构造函数 不需要new Symbol值不是对象
+        let s = Symbol();
+        console.log(s, typeof s);
+        // Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分。
+        let s2 = Symbol('尚硅谷');
+        let s3 = Symbol('尚硅谷');
+        // Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的。
+        console.log(s2 == s3);//不相等
+        //Symbol.for 创建
+        let s4 = Symbol.for('尚硅谷');
+        let s5 = Symbol.for('尚硅谷');
+        console.log(s4 == s5);//相等
+        // symbol.for访问的是一个全局的symbol表，如果有了就访问对应对象，没有就重新创建
+        // Symbol.for()与Symbol()这两种写法，都会生成新的 Symbol。它们的区别是，
+        // 前者会被登记在全局环境中供搜索，后者不会。
+
+        //不能与其他数据进行运算
+        //    let result = s + 100;
+        //    let result = s > 100;
+        //    let result = s + s;
+
+        // USONB  u so nb 
+        // u  undefined
+        // s  string  symbol
+        // o  object
+        // n  null number
+        // b  boolean
+
+    </script>
+</body>
+</html> 

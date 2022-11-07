@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 借用父构造函数继承属性
+        // 1. 父构造函数
+        function Father(uname, age) {
+            // this 指向父构造函数的对象实例
+            this.uname = uname;
+            this.age = age;
+        }
+
+
+
+
+
+        // 2 .子构造函数 
+        function Son(uname, age, score) {
+            // this 指向子构造函数的对象实例
+            Father.call(this, uname, age);
+            //借用父构造函数 father的构造函数的this指向son的this,即son的实例化对象
+            //因此father构造函数this指向son的实例化对象
+            //this.uname = uname;中的this.uname是son的 实例化对象.属性
+            //= uname这个unmae,是son构造函数的参数 然后写到call函数中的参数的uname
+            this.score = score;
+
+            this.walk = function(){
+                console.log(this.uname + 'walk');
+            }
+        }
+         
+
+
+
+
+
+        var son = new Son('刘德华', 18, 100);
+        console.log(son);
+        son.walk();
+    </script>
+</body>
+
+</html>

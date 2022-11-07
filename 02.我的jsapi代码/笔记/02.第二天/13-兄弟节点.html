@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <script>
+        var div = document.querySelector('div');
+        // 1.nextSibling 下一个[兄弟]节点 包含元素节点或者 文本节点等等
+        console.log(div.nextSibling);//得到换行
+        console.log(div.previousSibling);//得到换行
+
+
+
+        // 2. nextElementSibling 得到下一个[兄弟]元素节点
+        console.log(div.nextElementSibling);//span
+        console.log(div.previousElementSibling);//null
+
+
+
+        console.log(div.parentNode);
+        //注意本节讲的是获得兄弟!!!body是div地父元素
+    </script>
+</body>
+
+</html>

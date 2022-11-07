@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mySymbol = Symbol();
+        var o = {
+            sex:'man',
+            
+        };
+        o.name = 'aa';
+        o['age'] = 20; 
+        o['sex'] =' woman';//必须加引号
+        o[mySymbol] = 'hello';//mySymbol 由于symbol类似 字符串 就不用加引号了
+        console.log(o);
+    </script>
+</body>
+</html>

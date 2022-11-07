@@ -1,0 +1,30 @@
+2021.11.9
+
+1.
+call apply bind
+看4,5,6,以及案例完善
+在构造函数中 方法.bind(调用者,this) 代替that
+不改变原来的this 将main作为参数传递
+call 经常做继承. 
+apply 经常跟数组有关系.  比如借助于数学对象实现数组最大值最小值
+bind  不调用函数,但是还想改变this指向. 比如改变定时器内部的this指向. 
+
+
+2.高阶函数
+可见之前的缓动动画
+
+3.闭包
+https://www.runoob.com/js/js-function-closures.html
+
+4.递归
+
+5.拷贝
+var k in obj
+访问时obj[k] 不是 obj.k
+浅拷贝拷贝深层数据(比如对象)会拷贝地址
+
+6.instanceof
+
+7.立即执行函数
+
+8.函数加括号和不加括号的区别

@@ -1,0 +1,16 @@
+2021.11.2 - 2021.11.3
+
+1.
+https://blog.csdn.net/qq_40990854/article/details/88925460
+
+2.
+offset/client/scorll + Top/Left/Width/Height的含义
+获取数值用这些 得到的数值不带px
+设置数值用style 设置的时候要带px
+console.log(div.scrollHeight);//内容超出盒子 scroll返回内容的大小
+console.log(div.clientHeight);//有padding 无border
+console.log(div.offsetHeight);//有padding 有border
+
+pageXOffset 和 pageYOffset 属性返回文档在窗口左上角水平和垂直方向滚动的像素。
+
+看ppt

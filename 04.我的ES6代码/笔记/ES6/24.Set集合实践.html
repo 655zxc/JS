@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set 实践</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3,4,5,4,3,2,1];
+        //1. 数组去重
+        let result1 = [...new Set(arr)];//转集合 再转数组 
+        //rest可以转数组 
+        console.log(result1);
+        // new Set(arr)可将其转为类数组，而且里面元素是不重复的，接着...是扩展运算符 将类数组转为数组
+
+
+        //2. 交集
+        let arr2 = [4,5,6,5,6];
+        let result2 = [...new Set(arr)].filter(item => {
+            //将去重后的arr数组 执行filter
+            let s2 = new Set(arr2);// 4 5 6
+            if(s2.has(item)){
+                return true;
+            }else{
+                return false;
+            }
+        });
+        // let result2 = [...new Set(arr)].filter(item => new Set(arr2).has(item));//简化
+        console.log(result2);
+
+        //3. 并集
+        let union = [...new Set([...arr, ...arr2])];//记得arr arr2前面也要加...变成数组的形式 否则set只有两个参数
+        console.log(union);
+
+        //4. 差集
+        let diff = [...new Set(arr)].filter(item => !(new Set(arr2).has(item)));
+        console.log(diff);
+
+    </script>
+</body>
+
+</html>

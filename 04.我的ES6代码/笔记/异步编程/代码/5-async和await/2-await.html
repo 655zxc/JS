@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await</title>
+</head>
+<body>
+    <script>
+        async function main(){
+            let p = new Promise((resolve, reject) => {
+                // resolve('OK');
+                reject('Error');
+            })
+            //1. 右侧为promise成功的情况 res会获得成功的值(不是得到promise)
+            // let res = await p;//await得到一个成功的promise 然后获取它的值 赋给res
+            // console.log(res);
+            //2. 右侧为其他类型的数据 还是返回这个值
+            // let res2 = await 20;
+            //3. 如果promise是失败的状态
+            try{
+                let res3 = await p;
+                //中断,不会执行下面的语句
+                console.log(res3);
+            }catch(e){
+                // console.log(e);
+                //e的值是promise的失败值
+            }
+            
+        }
+
+        main();
+    </script>
+</body>
+</html>

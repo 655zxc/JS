@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var money = 100;
+        var flag = true;
+        while(flag){
+            var item = prompt("请输入您要的操作:\n1.存钱\n2.取钱\n3.显示余额\n4.退出");
+        switch(item){
+            case '1':   
+                var save = prompt("请输入存储金额");
+                save = parseFloat(save);
+                while(true){
+                    if(save<0 || isNaN(save))
+                    {
+                        alert("请输入正确的数字");
+                        save = prompt("请输入存储金额");
+                        save = parseFloat(save);
+                    }
+                    else 
+                    {
+                        
+                        money = money + save;
+                        alert("存款成功");
+                        break;
+                    }
+                }
+                break;
+            case '2':
+                var get = prompt("请输入取款金额");
+                get = parseFloat(get);
+                while(true){
+                    if(get<0 || isNaN(get))
+                    {
+                        alert("请输入正确的数字");
+                        get = prompt("请输入取款金额");
+                        get = parseFloat(get);
+                    }
+                    else if(money  < get )
+                    {
+                        alert("余额不足");
+                        get = prompt("请输入取款金额");
+                        get = parseFloat(get);
+                        
+                    }
+                    else 
+                    {
+                        money = money - get;
+                        alert("取款成功");
+                        break;
+                    }
+                }
+                break;
+            case '3':
+                alert("余额为"+money);
+                break;
+            case '4':
+                alert("退出");
+                flag = false;
+                break;
+            default:
+                alert("请输入正确的选项");
+        }
+        }
+        
+        // 总结:
+        // 1.js中的prompt返回的是string 需要转化为数字
+        // 2.当转化一个带有字母的字符串 可能失败 变成NaN
+        // 3.使用isNaN判断
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

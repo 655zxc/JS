@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            height: 200px;
+
+            margin: 100px auto;
+        }
+
+        ul{
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+        }
+
+        li{
+            width: 25%;
+            height: 100%;
+            list-style: none;
+            /* background-color: cornflowerblue; */
+        }
+        
+        img{
+            width: 100%;
+        }
+        
+        body{
+            background: url('../../笔记/02.第二天/images/1.jpg');
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="../../笔记/02.第二天/images/1.jpg" alt=""></li>
+            <li><img src="../../笔记/02.第二天/images/2.jpg" alt=""></li>
+            <li><img src="../../笔记/02.第二天/images/3.jpg" alt=""></li>
+            <li><img src="../../笔记/02.第二天/images/4.jpg" alt=""></li>
+        </ul>
+        <!-- 不要给img套上一个a 会导致触发onclick同时触发超链接 重置效果了 -->
+    </div>
+
+    <script>
+        var li = document.getElementsByTagName('img');
+        var body = document.body;
+
+        for(var i = 0;i < li.length;i++){
+            li[i].onclick = function(){
+                body.style.background = 'url(' + this.src + ')';
+
+                // body.style.background = url("../../笔记/02.第二天/images/" + i + ".jpg");
+                
+            }
+        }
+    </script>
+</body>
+</html>

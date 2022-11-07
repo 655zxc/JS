@@ -1,0 +1,13 @@
+2021.10.27
+
+
+1.常用方法
+consloe.log
+alert
+prompt 返回的是字符串
+typeof xx
+isNAN()
+
+2.  转化为字符串
+    转化为数字
+    转化为布尔

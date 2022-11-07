@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol 创建对象属性</title>
+</head>
+<body>
+    <script>
+        //向对象中添加方法 up down
+        let game = {
+            name:'俄罗斯方块',
+            up: function(){},
+            down: function(){}
+        };
+        
+
+        // 注意，Symbol 值作为对象属性名时，不能用点运算符。
+        //因为symbol是个字符串 详见test
+        
+        //声明一个对象
+        //我们不知道game里面有没有up down方法 害怕覆盖
+        let methods = {
+            up: Symbol(),
+            down: Symbol()
+        };//声明一个中间对象
+
+        game[methods.up] = function(){
+            console.log("我可以改变形状");
+        }//methods.up独一无二 
+        //往里面添加了一个symbol方法 不会和up冲突
+
+        game[methods.down] = function(){
+            console.log("我可以快速下降!!");
+        }
+
+        console.log(game);
+        //里面既有自带的up down 又有刚才添加的symbol方法
+
+
+
+
+
+
+
+
+        //
+        let youxi = {
+            name:"狼人杀",
+            [Symbol('say')]: function(){
+                console.log("我可以发言")
+            },
+            [Symbol('zibao')]: function(){
+                console.log('我可以自爆');
+            }
+        }
+
+        console.log(youxi)
+
+        
+    </script>
+</body>
+</html>

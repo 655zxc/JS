@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        
+        var div = document.querySelector('div');
+        var divx =0;
+        var divy=0;
+        //盒子初始位置
+        var fingerx=0;
+        var fingery=0;
+        //手指初始位置
+        div.addEventListener('touchstart',function(e){
+            // 获取初始位置
+            divx = div.offsetLeft;
+            divy = div.offsetTop;
+            fingerx = e.targetTouches[0].pageX;
+            fingery = e.targetTouches[0].pageY;
+        })
+
+        div.addEventListener('touchmove',function(e){
+            // 在移动的时候 盒子加上手指移动的距离
+            var movex = e.targetTouches[0].pageX - fingerx;
+            var movey = e.targetTouches[0].pageY - fingery;
+
+            div.style.left = divx + movex + 'px';
+            div.style.top = divy + movey + 'px';
+
+            e.preventDefault(); // 阻止屏幕滚动的默认行为
+        })
+    </script>
+</body>
+
+</html>

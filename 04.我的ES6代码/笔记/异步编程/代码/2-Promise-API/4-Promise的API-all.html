@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API - all</title>
+</head>
+<body>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            // resolve('OK');
+            reject('NO');
+        })
+        // let p2 = Promise.resolve('Success');
+        let p2 = Promise.reject('Error');
+        let p3 = Promise.resolve('Oh Yeah');
+        //创建了三个promise对象 p1用构造函数 p2p3用构造函数的方法
+        
+        
+        const result = Promise.all([p1, p2, p3]);
+
+        console.log(result);
+    </script>
+</body>
+</html>

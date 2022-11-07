@@ -1,0 +1,131 @@
+2021.11.16
+
+https://www.zhihu.com/search?type=content&q=JS%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0
+https://www.jianshu.com/p/be2d183ab2e5
+https://blog.csdn.net/weixin_39710041/article/details/111344927
+回调函数 回调函数是作为参数传给另一个函数的函数，然后通过在外部函数内部调用该回调函数以完成某种操作。
+settimeout就是外部函数 第一个参数就是一个回调函数
+setTimeout是同步任务，里面的回调函数是异步任务
+
+
+异步编程的实现方式 四种
+回调函数
+setTimeout(() => {
+            console.log(111);
+            setTimeout(() => {
+                console.log(222);
+                setTimeout(() => {
+                    console.log(333);
+                }, 3000);
+            }, 2000);
+        }, 1000);
+
+        定时器里面写一个回调函数 实现异步
+
+        promise 生成器函数 都是把这个回调地狱拆开的
+
+        promise他的then的(value)=>{},(reason)=>{}就是一个回调函数
+
+        promise本身的内容是同步的(如果内容是定时器那就变异步了)
+
+        注意使用promise时 是创建一个promise对象 然后调用它的then方法
+
+
+
+        ## 异步编程
+* fs 文件操作
+    ```js
+    require('fs').readFile('./index.html', (err,data)=>{})
+    ```
+* 数据库操作
+* AJAX 
+  ```js
+    $.get('/server', (data)=>{})
+  ```
+* 定时器 
+  ```js
+  setTimeout(()=>{}, 2000);
+  ```
+
+  这些操作都是异步的(系统规定)
+  因此他们的回调函数都是异步的
+  而animate的回调函数就是同步的
+
+
+1.为什么要用 Promise?
+
+指定回调函数的方式更加灵活
+旧的: 必须在启动异步任务前指定
+promise: 启动异步任务 => 返回promie对象 => 给promise对象绑定回调函数(甚至可以在异步任务结束后指定/多个)
+promise执行完异步程序后,得到一个具有状态的promise,然后再调用then函数,在then里面指定回调
+
+支持链式调用, 可以解决回调地狱问题
+什么是回调地狱? 
+回调函数嵌套调用, 外部回调函数异步执行的结果是嵌套的回调执行的条件
+
+
+2.
+/*
+2.1. 回调地狱
+*/
+doSomething(function(result) {
+doSomethingElse(result, function(newResult) {
+doThirdThing(newResult, function(finalResult) {
+console.log('Got the final result: ' + finalResult)
+}, failureCallback)
+}, failureCallback)
+}, failureCallback)
+/*
+2.2. 使用 promise 的链式调用解决回调地狱
+*/
+doSomething().then(function(result) { 根据doSomething()得到的promise 执行then 在then中执行doSomethingElse操作,这是一个异步函数
+return doSomethingElse(result)
+})
+.then(function(newResult) {
+return doThirdThing(newResult)
+})
+.then(function(finalResult) {
+console.log('Got the final result: ' + finalResult)
+})
+.catch(failureCallback)
+/*
+2.3. async/await: 回调地狱的终极解决方案
+*/
+async function request() {
+try {
+const result = await doSomething()
+const newResult = await doSomethingElse(result)
+const finalResult = await doThirdThing(newResult)
+console.log('Got the final result: ' + finalResult)
+} catch (error) {
+failureCallback(error)
+}
+}
+</script
+
+
+
+3.promise 的几个关键问题
+看pdf 和 代码
+
+4.async await
+他是promise的语法糖
+https://segmentfault.com/a/1190000007535316
+
+如果它等到的不是一个 Promise 对象，那 await 表达式的运算结果就是它等到的东西。
+
+如果它等到的是一个 Promise 对象，await 就忙起来了，
+它会阻塞后面的代码，等着 Promise 对象 resolve，
+[然后得到 resolve 的值]
+，作为 await 表达式的运算结果。
+这样省去了then的链式调用
+
+那如果await后面的promise是失败的呢?
+那就需要try catch
+
+5.
+
+异步函数1.then(异步函数2).then(异步函数3).then(XX)
+函数1生成promise,调用then
+异步函数2返回一个promise,异步函数3需要这个promise
+把回调地狱变成了链式调用

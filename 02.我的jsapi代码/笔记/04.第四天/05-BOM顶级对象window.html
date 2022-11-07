@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // window.document.querySelector()
+        // window包含document
+        // BOM 的顶级[对象]是 window
+        // DOM 的顶级[对象]是 document
+        //它们都是对象!!!!
+
+
+
+        var num = 10;
+        console.log(num);
+        console.log(window.num);
+        //num完整的写法是window.num
+        //num是window的方法
+
+
+
+        function fn() {
+            console.log(11);
+
+        }
+        fn();
+        window.fn();
+        //fn是window的方法
+
+
+
+
+        // alert(11);
+        // window.alert(11)
+        //alert是window的方法
+
+
+
+
+
+        console.dir(window);
+        //打印window这个对象
+
+
+
+
+
+        // var name = 10;//一般不用这个 因为window.name是个特殊属性
+        console.log(window.name);
+    </script>
+</body>
+
+</html>

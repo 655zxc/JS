@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API - race</title>
+</head>
+<body>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('OK');
+            }, 1000);
+        })
+        let p2 = Promise.resolve('Success');
+        let p3 = Promise.resolve('Oh Yeah');
+        //创建三个promise对象
+
+        //调用
+        const result = Promise.race([p1, p2, p3]);
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+
+        console.log(result);
+
+        //由于p1的定时器是异步 所以result的值是success
+        //如果p1没有定时器 就是OK
+    </script>
+</body>
+
+</html>

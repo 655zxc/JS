@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../笔记/01.第一天/images/s.gif" alt="">
+    <div></div>
+    <script>
+        var time = new Date();
+        var img = document.querySelector('img');
+        var div = document.querySelector('div');
+
+        var now = time.getHours();
+
+        if(now>=8 && now < 12){
+            img.src = '../../笔记/01.第一天/images/s.gif';
+            div.innerHTML = '上午好';
+        }
+        else if (now>=12 && now<20){
+            img .src = '../../笔记/01.第一天/images/x.gif';
+            div.innerHTML = '下午好';
+        }
+        else{
+            img.src = '../../笔记/01.第一天/images/w.gif';
+            div.innerHTML = '晚午好';
+        }
+
+        console.log(now);
+    </script>
+</body>
+</html>

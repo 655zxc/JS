@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = ['red', 'green', 'blue', 'pink'];
+        // 1. forEach迭代 遍历
+        arr.forEach(function(value,index) {
+            if (value == 'green') {
+                console.log('找到了该元素');
+                return true; // 在forEach 里面 return 不会终止迭代
+                //但是终止了green这一次迭代
+            }
+            console.log('foreach的迭代' + index);
+
+        })
+        console.log('======================');
+
+
+
+
+
+
+        // 如果查询数组中唯一的元素, 用some方法更合适,
+        arr.some(function(value,index) {
+            if (value == 'green') {
+                console.log('找到了该元素');
+                return true; //  在some 里面 遇到 return true 就是终止遍历 迭代效率更高
+            }
+            console.log('some的迭代' + index);
+
+        });
+        console.log('======================');
+
+
+
+
+
+
+        arr.filter(function(value,index) {
+            if (value == 'green') {
+                console.log('找到了该元素');
+                return true; //  // filter 里面 return 不会终止迭代
+                //和foreach一样
+            }
+            console.log('filter的迭代' + index);
+
+        });
+    </script>
+</body>
+
+</html>

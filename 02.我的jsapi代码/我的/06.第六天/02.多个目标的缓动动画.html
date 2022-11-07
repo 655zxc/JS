@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+
+            position: absolute;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <button>点击移动到800</button>
+    <button>点击移动到500</button>
+    <button>点击移动到0</button>
+    <div class="box"></div>
+    <script>
+        var btn = document.querySelectorAll('button');
+        var box = document.querySelector('.box');
+
+        function animation(obj,target){
+            // if(obj.timer == null){//防止多次点击,多次调用函数,多次赋值定时器,因此只有未被赋值才行
+            //     obj.timer = setInterval(function(){
+            //     if(obj.offsetLeft < target){
+                //  不能这样写 因为当元素往回走的时候 就不适用了 offsetLeft > target
+            //         var step = (target - obj.offsetLeft)/10;
+            //         obj.style.left = obj.offsetLeft + step + 'px';
+            //     }
+            //     else{
+            //         clearInterval(obj.timer);
+            //     }
+
+            // },15)
+            // }
+
+                clearInterval(obj.timer);
+            
+                obj.timer = setInterval(function(){
+
+                    if(target == obj.offsetLeft){
+                        clearInterval(obj.timer);
+                    }
+                    else{
+                        var distance = (target - obj.offsetLeft)/10;
+                        var step = distance > 0? Math.ceil(distance) : Math.floor(distance);
+                        // 元素停止的位置并不是target
+                        // 把我们步长值改为整数 不要出现小数的问题
+                        // step为正向前移动时 由于向上取整 最小移动1px
+                        // 为负向后 向下取整 至少移动-1px
+                        // var step = Math.ceil((target - obj.offsetLeft) / 10);
+                        //这样做解决不了向后移动step为负数的问题 
+                        obj.style.left = obj.offsetLeft + step + 'px';
+                    }
+
+
+
+                },15)
+            
+
+        }
+    
+
+        btn[0].addEventListener('click',function(){
+            animation(box,800);
+        })
+
+        btn[1].addEventListener('click',function(){
+            animation(box,500);
+        })
+
+        btn[2].addEventListener('click',function(){
+            animation(box,0);
+        })
+    </script>
+</body>
+</html>

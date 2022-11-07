@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        // 任何数据都能被判真或假
+        //&& ||返回的都是前后的表达式 不是布尔值 
+
+        console.log(1 && 2 + 3 && 4 * 5);//20
+        
+
+        // 1为真 返回 2 + 3 && 4 * 5
+        // 2+3为真1 返回4*5
+
+        console.log(5-5 && 2*3);//0
+        // 5-5为假 返回它
+
+
+
+        console.log(0 || 'ASD' || 456 + 123); //ASD
+        // 0为假 返回ASD || 456 + 123
+        // ASD为真 返回ASD
+
+
+        var num = 0;
+        console.log(123 || num++);
+        console.log(num); // 0
+        //123为真 中断 返回123 num++没有执行
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

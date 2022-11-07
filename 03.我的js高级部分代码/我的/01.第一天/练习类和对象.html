@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>
+    click to eat
+    </button>
+    <script>
+        var that;
+        class People{
+            constructor(name,age,sex){
+                that = this;
+                this.name = name;
+                this.age = age;
+                this.sex = sex;
+                this.btn = document.querySelector('button');
+                // this.btn.addEventListener('click',function(){
+                //     this.eat;
+                // })
+                this.btn.onclick = this.eat;//不能写上面那种?
+                //为什么写成this.btn.onclick = this.eat()就直接调用了
+            }
+
+            eat(food){
+                // console.log(this.name + ' eat ' + food);
+                console.log(that.name + ' eat apple');
+            }
+        }
+
+        var one = new People('jack',20,'man');
+        // one.eat('apple');
+    </script>
+</body>
+</html>

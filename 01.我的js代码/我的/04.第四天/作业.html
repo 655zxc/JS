@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function reverse(arr){
+            var i = 0;
+            var j = arr.length;
+            var temp;
+            for(;i<j;i++,j--){
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+            return arr;
+        }
+
+        a = [1,2,3,4,5,6,7];
+
+        console.log(reverse(a));
+        console.log(a);
+        //反转数组函数 可以注意到 原来的实参值被改变了
+
+
+        var b = 10;
+
+        function test(num){
+            num-=5;
+            return num;
+
+        }
+
+        console.log(test(b));
+        console.log(b);
+        //实参是基本数据类型 并没有被改变
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

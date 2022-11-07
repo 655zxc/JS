@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style-type: none;
+        }
+        
+        .tab {
+            width: 978px;
+            margin: 100px auto;
+        }
+        
+        .tab_list {
+            height: 39px;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        
+        .tab_list li {
+            float: left;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .tab_list .current {
+            background-color: #c81623;
+            color: #fff;
+        }
+        
+        .item_info {
+            padding: 20px 0 0 20px;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（50000）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                商品介绍模块内容
+            </div>
+            <div class="item">
+                规格与包装模块内容
+            </div>
+            <div class="item">
+                售后保障模块内容
+            </div>
+            <div class="item">
+                商品评价（50000）模块内容
+            </div>
+            <div class="item">
+                手机社区模块内容
+            </div>
+
+        </div>
+    </div>
+    <script>
+      var lists = document.getElementsByTagName('li');
+      var items = document.getElementsByClassName("item");
+
+      for(var i = 0; i < lists.length ; i++){
+          
+        lists[i].setAttribute('index',i);
+        //给li设置上序号 方便后面取
+        //注意:这里点击函数外用i 和 函数内用i是不一样的
+        //函数外用i还是正常的 但是函数内用i就是5了
+
+
+        lists[i].onclick = function(){
+           
+
+
+
+            for(var j = 0 ; j < lists.length ; j ++){
+                lists[j].className = "";
+            }
+            this.className  = "current";
+             //排他按钮
+
+
+
+
+        for(var j = 0 ; j < lists.length ; j ++){
+                items[j].style.display = "none";
+        }
+                items[this.getAttribute('index')].style.display  = "block";
+                //获取li的index 对应给item
+
+        }//排他内容
+
+
+
+        // for(var j = 0 ; j < lists.length ; j ++){
+        //         items[j].style.display = "none";
+        // }
+        //         items[i].style.display  = "block";
+
+        // }
+        //当循环结束 i的值是5 此时还没有触发onclick
+        //当触发onclick的时候 i已经是5了
+        // i只在给每个标题绑定事件时起作用 
+        // 就是设置点击每个标题时回调用函数 
+        // 但是函数这时候只是声明 
+        // 只有点击某个标题时 
+        // 函数才会调用 
+        // 这时候只执行函数里面的内容 
+        // i不起作用
+    }
+
+   
+    
+    
+
+
+
+      
+    
+    
+
+
+
+    </script>
+</body>
+
+</html>

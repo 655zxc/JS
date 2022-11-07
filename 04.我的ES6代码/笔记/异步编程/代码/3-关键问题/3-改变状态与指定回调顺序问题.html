@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise关键问题 - Promise 改变状态与指定回调的顺序问题</title>
+</head>
+<body>
+    <script>
+
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                    //这里promise包裹的程序是异步的
+                resolve('OK');
+                console.log("改变状态");
+            }, 1000);
+        });
+        //当promise里面的resolve是同步 则先resolve 后 then
+        //当里面是异步(定时器) 先then 后 resolve
+        //注意  这种情况是表明then先执行，而不是then里面的回调函数先执行
+        // 因为then是微任务，setTimeout是宏任务，所以同步任务执行完以后先去执行then，
+        // 也就是指定了p改变状态时的回调函数，然后再执行定时器，执行了resolve('ok')，触发then里的回调
+
+        //因此 执行顺序还是 改变状态=>回调函数
+
+        p.then(value => {
+            console.log("回调函数"+value);
+        },reason=>{
+            
+        })
+    </script>
+</body>
+</html>

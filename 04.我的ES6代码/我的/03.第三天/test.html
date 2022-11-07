@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p = new Promise((resolve,reject)=>{
+            let data = 'promise语句';
+            console.log('promise主体');
+            //promise里的操作是同步
+
+
+            setTimeout(() => {
+                resolve(data);
+            }, 1000);
+            //模拟异步
+            
+        })
+        p.then(function(value){
+            console.log(value + 'then');
+        }, function(reason){
+            console.error(reason + 'then');
+        })
+        //then里的操作是回调函数 异步
+        setTimeout(() => {
+            console.log('定时器语句');
+        }, 1000);
+        console.log('log语句');
+    </script>
+</body>
+</html>

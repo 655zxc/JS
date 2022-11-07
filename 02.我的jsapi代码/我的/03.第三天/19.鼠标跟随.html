@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../笔记/03.第三天/images/aaa.jpg" alt="">
+    <script>
+        var img = document.querySelector('img');
+        document.addEventListener('mousemove',function(e){
+            // 鼠标在页面中移动 因此给页面绑定事件
+            img.style.left = e.clientX + 'px';
+            img.style.top = e.clientY + 'px';
+            // 记得加px 而且e.clientX 返回的是数字 别加引号
+        });
+    </script>
+</body>
+</html>

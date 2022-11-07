@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则扩展-命名捕获分组</title>
+</head>
+
+<body>
+    <script>
+        
+        //声明一个字符串
+        // let str = '<a href="http://www.atguigu.com">尚硅谷</a>';
+
+        // //提取 url 与 『标签文本』
+        // const reg = /<a href="(.*)">(.*)<\/a>/;
+
+        // //执行
+        // const result = reg.exec(str);
+
+        // console.log(result);
+        // // console.log(result[1]); //第一个(.*)
+        // // console.log(result[2]); //第二个(.*)
+
+        //.*
+// . 表示 匹配除换行符 \n 之外的任何单字符，*表示零次或多次。
+// 所以.*在一起就表示任意字符出现零次或多次。
+// 没有?表示贪婪模式。
+// 比如a.*b，它将会匹配最长的以a开始，以b结束的字符串。
+// 如果用它来搜索aabab的话，它会匹配整个字符串aabab。这被称为贪婪匹配。
+//https://blog.csdn.net/sinat_32336967/article/details/94761771?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link
+
+        
+        let str = '<a href="http://www.atguigu.com">尚硅谷</a>';
+        //分组命名
+        const reg = /<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+
+        const result = reg.exec(str);
+        //reg.exec() 用来捕获符合规则的字符串
+
+        console.log(result.groups.url);
+
+        console.log(result.groups.text);
+    </script>
+</body>
+
+</html>

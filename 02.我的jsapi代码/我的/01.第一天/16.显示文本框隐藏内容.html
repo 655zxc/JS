@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="手机">
+    <script>
+        var input = document.querySelector('input');
+
+        input.onfocus = function(){
+            //获得焦点
+            input.placeholder = '';
+        }
+
+        input.onblur = function(){
+            //失去焦点
+            input.placeholder = '手机';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // forEach 迭代(遍历) 数组
+        var arr = [1, 2, 3];
+        var sum = 0;//要定义在外边 别定义在函数内部
+        arr.forEach(function(value, index, array) {
+            console.log('每个数组元素' + value);
+            console.log('每个数组元素的索引号' + index);
+            console.log('数组本身' + array);
+            sum += value;
+        })
+        // foreach里面写了个内部函数,foreach函数在循环数组1,2,3的时候会做这些事
+        // forEach() 方法对数组的每个元素执行一次提供的函数
+        console.log(sum);
+    </script>
+</body>
+
+</html>

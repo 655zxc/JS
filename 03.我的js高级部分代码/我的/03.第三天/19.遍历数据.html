@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = [{
+            id: 1,
+            name: '家电',
+            goods: [{
+                id: 11,
+                gname: '冰箱',
+                goods: [{
+                    id: 111,
+                    gname: '海尔'
+                }, {
+                    id: 112,
+                    gname: '美的'
+                }, ]
+            }, {
+                id: 12,
+                gname: '洗衣机'
+            }]
+        }, {
+            id: 2,
+            name: '服饰'
+        }];
+        
+        // var o = {};//存对象
+        function getID(data,id){
+            var o = {};
+            data.forEach(function(value){//遍历每个一级数据
+                if(id == value.id){
+                    o = value;
+                }
+                else if(value.goods && value.goods.length > 0){
+                    o = getID(value.goods,id);//如果存在 则去这个value的goods里面找
+                }
+                
+            })
+            return o;
+        }
+        //注意 因为只有一个对应的选项 因此肯定且只有一个出口
+        
+
+
+       
+        console.log(getID(data, 1));
+        console.log(getID(data, 2));
+        console.log(getID(data, 11));
+        console.log(getID(data, 12));
+        console.log(getID(data, 111));
+    </script>
+</body>
+
+</html>

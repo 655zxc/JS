@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静态成员</title>
+</head>
+<body>
+    <script>
+        //ES5
+        function OldPhone(){
+
+        }
+        OldPhone.name = '手机';
+        OldPhone.change = function(){
+            console.log("我可以改变世界");
+        }//静态成员 实例对象无法访问
+        
+        OldPhone.prototype.size = '5.5inch';//写在原型里 每个实例都有
+
+        let oldnokia = new OldPhone();
+
+        console.log(oldnokia.name);//无 未定义
+        // nokia.change();
+        console.log(oldnokia.size);//有
+
+
+
+
+
+
+
+        //ES6
+        class Phone{
+            //静态属性
+            static name = '手机';//等同于Phone.name = '手机';
+            static change(){
+                console.log("我可以改变世界");
+            }//就是上面ES5里的语法糖
+        }
+
+        let nokia = new Phone();
+        console.log(nokia.name);
+        console.log(Phone.name);
+    </script>
+</body>
+</html>

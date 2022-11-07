@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API - reject</title>
+</head>
+<body>
+    <script>
+
+        //reject 说明: 返回一个失败的 promise 对象
+         //Promise构造器的方法reject会返回一个promise对象
+
+        let p1 = Promise.reject(521);
+        console.log(p1);
+        //返回一个数值为521 的失败的 promise
+
+
+
+
+
+
+        let p3 = Promise.reject(new Promise((resolve, reject) => {
+            resolve('OK');
+        }));
+        console.log(p3);
+        //即使传入一个成功的promise 返回的仍然是一个失败的promise
+        //p3的数值是这个失败的promise
+    </script>
+</body>
+</html>

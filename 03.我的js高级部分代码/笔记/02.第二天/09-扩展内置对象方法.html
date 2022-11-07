@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 原型对象的应用 扩展内置对象方法
+
+        Array.prototype.sum = function() {
+            var sum = 0;
+            for (var i = 0; i < this.length; i++) {
+                sum += this[i];
+                //谁调用这个方法 谁就是this
+                //也就是不同的实例化对象 就是不同的数组 他们共享一个原型对象
+            }
+            return sum;
+        };
+        //对象.方法 =  function() { } 
+        //给原型对象自定义一个函数
+        //覆盖后，没有constructor指向构造函数了，所以往原型链找就找不到原型对象的方法了,连sum都找不到了
+
+
+
+
+
+
+
+        // Array.prototype = {
+        //     sum: function() {
+        //         var sum = 0;
+        //         for (var i = 0; i < this.length; i++) {
+        //             sum += this[i];
+        //         }
+        //         return sum;
+        //     }
+
+        // }
+        //给原型对象赋值一个对象 这样写会覆盖 原型对象里就只有sum方法了
+
+
+
+
+
+
+
+
+        var arr = [1, 2, 3];
+        console.log(arr.sum());//调用原型中的sum方法 this是arr
+        console.log(Array.prototype);//打印原型对象 发现多了个sum方法
+        var arr1 = new Array(11, 22, 33);
+        console.log(arr1.sum());//调用原型中的sum方法 this是arr1
+    </script>
+</body>
+
+</html>

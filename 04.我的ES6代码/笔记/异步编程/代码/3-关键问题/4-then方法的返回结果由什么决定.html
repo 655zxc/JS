@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise关键问题 - Promise then方法的返回结果特点</title>
+</head>
+<body>
+    <script>
+
+
+// promise.then()会返回一个值
+
+
+// (1) 简单表达: 由 then()指定的回调函数执行的结果决定
+// (2) 详细表达:
+// ① 如果抛出异常, 新 promise 变为 rejected, reason 为抛出的异常，状态为失败
+// ② 如果返回的是非 promise 的任意值, 新 promise 变为 resolved, value 为返回的值，未返回值是undefined，状态为成功
+// ③ 如果返回的是另一个新 promise, 此 promise 的结果就会成为新 promise 的结果
+        let p = new Promise((resolve, reject) => {
+            resolve('ok');
+            // reject('Err');
+        });
+        //执行 then 方法
+        let result = p.then(value => {
+            // console.log(value);
+            //1. 抛出错误
+            // throw '出了问题';
+            //2. 返回结果是非 Promise 类型的对象(包括没有return)
+            // return 521;
+            //3. 返回结果是 Promise 对象
+            // return new Promise((resolve, reject) => {
+            //     // resolve('success');
+            //     reject('error');
+            // });
+        }, reason => {
+            console.warn(reason);
+        });
+
+        console.log(result);
+    </script>
+</body>
+</html>

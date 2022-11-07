@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 10px;
+        }
+        /* 内嵌样式 js无法得到数值 只能修改 */
+    </style>
+</head>
+
+<body>
+    <div class="box" style="width: 200px;"></div>
+    <!-- 行内样式 js可以通过  style.属性  获得数值 -->
+    <script>
+        // offset与style的区别
+        var box = document.querySelector('.box');
+        console.log(box.offsetWidth); //200 无单位 而且带有padding border
+        console.log(box.style.width); //200px 有单位
+        // box.offsetWidth = '300px'; //错误 offset是个只读属性 不能修改
+        box.style.width = '300px';    //style可读(仅限行内样式) 也可赋值
+
+
+        // 所以，我们想要获取元素大小位置，用offset更合适
+        // 所以，我们想要给元素更改值，则需要用style改变
+
+    </script>
+</body>
+
+</html>

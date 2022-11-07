@@ -1,0 +1,25 @@
+2021.10.30-2021.10.31
+
+1.
+排他思想
+
+2.
+循环绑定事件
+事件里面用this
+循环结束的i数值是多少?
+
+3.节点操作
+子元素.parentNode
+父元素.children[] (这个是集合 注意！)
+父元素.childNodes[] (这个有文本换行)
+兄弟.nextElementSibling
+兄弟.previousElementSibling
+
+
+var 新节点 = document.createElement('类型')
+
+
+父元素.appendChild(添加的子元素)
+父元素.insertBefore(添加的子元素,位置) 位置可以用父元素.children[XX]表示
+父元素.removeChild(删除的子元素)
+被复制的元素.cloneNode(true/false)

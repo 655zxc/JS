@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+
+    
+    <!-- 点击一个按钮 按钮变色
+    点击另一个按钮 按钮变色 并且其他已经变色的按钮回复原色 -->
+
+
+
+    <script>
+      var btns = document.getElementsByTagName('button');
+      
+      for(var i = 0 ; i < btns.length ; i ++){
+          btns[i].onclick = function(){
+
+            for(var j = 0 ; j < btns.length ; j ++){
+                btns[j].style.backgroundColor = "";
+            }
+
+            // btns[i].style.backgroundColor = 'pink'; 为什么只能用this????????
+            //见06笔记
+            this.style.backgroundColor = 'pink';
+          }
+      }
+    </script>
+</body>
+
+</html>
